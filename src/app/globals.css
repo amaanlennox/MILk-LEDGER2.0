@@ -1,0 +1,96 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 47.1% 9.5%; /* #0F172A/Slate 900 */
+    --foreground: 210 40% 98%;
+    --card: 222.2 47.1% 12%; /* Sleek slightly lighter container */
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 47.1% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221.2 83.2% 53.3%; /* #2563EB Royal Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 243 75.4% 59%; /* #4F46E5 Premium Purple Indigo */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222.2 47.1% 16%;
+    --muted-foreground: 215.4 16.3% 68%;
+    --accent: 213.1 93.9% 67.8%; /* #60A5FA Light Blue */
+    --accent-foreground: 222.2 47.1% 9.5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222.2 47.1% 18%; /* Delicate border */
+    --input: 222.2 47.1% 18%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 1rem; /* Luxurious high-radius corners */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/80;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-white;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.08) 0%, transparent 45%);
+    background-attachment: fixed;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.container {
+  @apply max-w-5xl px-4 mx-auto;
+}
+
+.glass-card {
+  @apply bg-slate-900/40 backdrop-blur-xl border border-slate-800/60 shadow-xl transition-all duration-300 hover:border-slate-700/60;
+}
+
+.premium-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
+}
+
+.page-transition {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; scale: 0.98; }
+  to { opacity: 1; scale: 1; }
+}
+
+.animate-count {
+  animation: countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrollbar tweaks for mobile */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800/80 hover:bg-slate-700/80 rounded-full transition-colors;
+}
+
+/* Modern styling elements */
+.fintech-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 font-extrabold;
+}
+
+.fintech-pill {
+  @apply px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase border;
+}
